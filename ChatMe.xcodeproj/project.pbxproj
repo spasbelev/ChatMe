@@ -18,6 +18,7 @@
 		FA31A0242120213A0033213F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31A0232120213A0033213F /* User.swift */; };
 		FA31A026212021BE0033213F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31A025212021BE0033213F /* Constants.swift */; };
 		FA31A028212023570033213F /* CollectionReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31A027212023570033213F /* CollectionReference.swift */; };
+		FA31A02A21203F2F0033213F /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31A02921203F2F0033213F /* HelperFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		FA31A0232120213A0033213F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA31A025212021BE0033213F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA31A027212023570033213F /* CollectionReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReference.swift; sourceTree = "<group>"; };
+		FA31A02921203F2F0033213F /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				FA31A0232120213A0033213F /* User.swift */,
 				FA31A025212021BE0033213F /* Constants.swift */,
 				FA31A027212023570033213F /* CollectionReference.swift */,
+				FA31A02921203F2F0033213F /* HelperFunctions.swift */,
 			);
 			path = ChatMe;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA31A02A21203F2F0033213F /* HelperFunctions.swift in Sources */,
 				FA31A026212021BE0033213F /* Constants.swift in Sources */,
 				FA31A0242120213A0033213F /* User.swift in Sources */,
 				FA1EF0F3211F5B5A003A6AAA /* WelcomeViewController.swift in Sources */,

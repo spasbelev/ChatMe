@@ -72,7 +72,7 @@ class User {
             if (created as! String).count != 14 {
                 createdAt = Date()
             } else {
-                createdAt = DateFormatter().date(from: created as! String)!
+                createdAt = dateFormatter().date(from: created as! String)!
             }
         } else {
             createdAt = Date()
@@ -81,7 +81,7 @@ class User {
             if (updateded as! String).count != 14 {
                 updatedAt = Date()
             } else {
-                updatedAt = DateFormatter().date(from: updateded as! String)!
+                updatedAt = dateFormatter().date(from: updateded as! String)!
             }
         } else {
             updatedAt = Date()
@@ -367,8 +367,8 @@ func fetchCurrentUserFromFirestore(userId: String, completion: @escaping (_ user
 
 func userDictionaryFrom(user: User) -> NSDictionary {
     
-    let createdAt = DateFormatter().string(from: user.createdAt)
-    let updatedAt = DateFormatter().string(from: user.updatedAt)
+    let createdAt = dateFormatter().string(from: user.createdAt)
+    let updatedAt = dateFormatter().string(from: user.updatedAt)
     
     return NSDictionary(objects: [user.objectId,  createdAt, updatedAt, user.email, user.loginMethod, user.pushId!, user.firstname, user.lastname, user.fullname, user.avatar, user.contacts, user.blockedUsers, user.isOnline, user.phoneNumber, user.countryCode, user.city, user.country], forKeys: [kOBJECTID as NSCopying, kCREATEDAT as NSCopying, kUPDATEDAT as NSCopying, kEMAIL as NSCopying, kLOGINMETHOD as NSCopying, kPUSHID as NSCopying, kFIRSTNAME as NSCopying, kLASTNAME as NSCopying, kFULLNAME as NSCopying, kAVATAR as NSCopying, kCONTACT as NSCopying, kBLOCKEDUSERID as NSCopying, kISONLINE as NSCopying, kPHONE as NSCopying, kCOUNTRYCODE as NSCopying, kCITY as NSCopying, kCOUNTRY as NSCopying])
     
@@ -419,7 +419,7 @@ func updateCurrentUserInFirestore(withValues : [String : Any], completion: @esca
         
         let currentUserId = User.currentId()
         
-        let updatedAt = DateFormatter().string(from: Date())
+        let updatedAt = dateFormatter().string(from: Date())
         
         tempWithValues[kUPDATEDAT] = updatedAt
         
