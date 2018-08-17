@@ -57,7 +57,10 @@ class WelcomeViewController: UIViewController {
     }
     
     func registerUser() {
-        print("registering")
+        performSegue(withIdentifier: "fromWelcomeToFinishReg", sender: self)
+
+        cleanTextField()
+        dismissKeyboard()        
     }
     
     func dismissKeyboard() {
@@ -75,6 +78,16 @@ class WelcomeViewController: UIViewController {
         cleanTextField()
         dismissKeyboard()
         
-        //present app
+        let mainView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainApplication") as! UITabBarController
+        
+        self.present(mainView, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "fromWelcomeToFinishReg" {
+            let vc = segue.destination as! FinishRegisterViewController
+            vc.email = EmailTextField.text!
+            vc.password = PasswordTextField.text!
+        }
     }
 }
