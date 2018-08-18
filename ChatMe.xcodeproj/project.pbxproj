@@ -24,6 +24,8 @@
 		FA39BE5921276D990088BD92 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39BE5821276D990088BD92 /* UserTableViewCell.swift */; };
 		FA39BE5C212772510088BD92 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39BE5B212772510088BD92 /* UsersTableViewController.swift */; };
 		FA39BE5E21277F6E0088BD92 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39BE5D21277F6E0088BD92 /* ChatsViewController.swift */; };
+		FA56F60F2128057000F16BDA /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F60E2128057000F16BDA /* ProfileTableViewController.swift */; };
+		FA56F6142128158A00F16BDA /* Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6132128158A00F16BDA /* Recent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		FA39BE5821276D990088BD92 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		FA39BE5B212772510088BD92 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		FA39BE5D21277F6E0088BD92 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
+		FA56F60E2128057000F16BDA /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		FA56F6132128158A00F16BDA /* Recent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,14 +107,12 @@
 				FA39BE55212706540088BD92 /* Classes */,
 				FA1EF0E0211F56BA003A6AAA /* AppDelegate.swift */,
 				FA1EF0E2211F56BA003A6AAA /* ViewController.swift */,
-				FA39BE5B212772510088BD92 /* UsersTableViewController.swift */,
-				FA39BE5A212772270088BD92 /* customCells */,
+				FA56F6122128130D00F16BDA /* SecondaryViews */,
+				FA39BE5A212772270088BD92 /* CustomCells */,
 				FA1EF0E4211F56BA003A6AAA /* Main.storyboard */,
 				FA31A02121201FB90033213F /* GoogleService-Info.plist */,
-				FA1EF0F2211F5B5A003A6AAA /* WelcomeViewController.swift */,
-				FA39BE5D21277F6E0088BD92 /* ChatsViewController.swift */,
-				FA39BE52212705C80088BD92 /* FinishRegisterViewController.swift */,
-				FA39BE56212762EB0088BD92 /* SettingsTableViewController.swift */,
+				FA56F610212812DE00F16BDA /* WelcomeView */,
+				FA56F611212812FA00F16BDA /* MainViews */,
 				FA1EF0E7211F56BB003A6AAA /* Assets.xcassets */,
 				FA1EF0E9211F56BB003A6AAA /* LaunchScreen.storyboard */,
 				FA1EF0EC211F56BB003A6AAA /* Info.plist */,
@@ -133,16 +135,44 @@
 			isa = PBXGroup;
 			children = (
 				FA31A0232120213A0033213F /* User.swift */,
+				FA56F6132128158A00F16BDA /* Recent.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		FA39BE5A212772270088BD92 /* customCells */ = {
+		FA39BE5A212772270088BD92 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
 				FA39BE5821276D990088BD92 /* UserTableViewCell.swift */,
 			);
-			path = customCells;
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		FA56F610212812DE00F16BDA /* WelcomeView */ = {
+			isa = PBXGroup;
+			children = (
+				FA1EF0F2211F5B5A003A6AAA /* WelcomeViewController.swift */,
+				FA39BE52212705C80088BD92 /* FinishRegisterViewController.swift */,
+			);
+			path = WelcomeView;
+			sourceTree = "<group>";
+		};
+		FA56F611212812FA00F16BDA /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				FA39BE5D21277F6E0088BD92 /* ChatsViewController.swift */,
+				FA39BE56212762EB0088BD92 /* SettingsTableViewController.swift */,
+			);
+			path = MainViews;
+			sourceTree = "<group>";
+		};
+		FA56F6122128130D00F16BDA /* SecondaryViews */ = {
+			isa = PBXGroup;
+			children = (
+				FA39BE5B212772510088BD92 /* UsersTableViewController.swift */,
+				FA56F60E2128057000F16BDA /* ProfileTableViewController.swift */,
+			);
+			path = SecondaryViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,7 +336,9 @@
 				FA39BE5C212772510088BD92 /* UsersTableViewController.swift in Sources */,
 				FA1EF0F3211F5B5A003A6AAA /* WelcomeViewController.swift in Sources */,
 				FA1EF0E3211F56BA003A6AAA /* ViewController.swift in Sources */,
+				FA56F60F2128057000F16BDA /* ProfileTableViewController.swift in Sources */,
 				FA1EF0E1211F56BA003A6AAA /* AppDelegate.swift in Sources */,
+				FA56F6142128158A00F16BDA /* Recent.swift in Sources */,
 				FA31A028212023570033213F /* CollectionReference.swift in Sources */,
 				FA39BE5E21277F6E0088BD92 /* ChatsViewController.swift in Sources */,
 				FA39BE57212762EB0088BD92 /* SettingsTableViewController.swift in Sources */,

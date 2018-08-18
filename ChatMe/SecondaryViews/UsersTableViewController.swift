@@ -13,8 +13,8 @@ import ProgressHUD
 
 
 
-class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
-
+class UsersTableViewController: UITableViewController, UISearchResultsUpdating, UserTableViewCellDelegate {
+    
 
     @IBAction func filterSegmentedValueChanged(_ sender: UISegmentedControl) {
         
@@ -94,7 +94,7 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
         }
         
         cell.generateCellWith(user: allUsers[indexPath.row], indexPath: indexPath)
-
+        cell.delegate = self
         return cell
     }
     
@@ -119,6 +119,19 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
     
     override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return index
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        var user : User
+        if searchController.isActive && searchController.searchBar.text != "" {
+            user = filteredUsers[indexPath.row]
+        } else {
+            let sectionTitle = self.sectionTitleList[indexPath.section]
+            let users = self.allusersGrouped[sectionTitle]
+            user = users![indexPath.row]
+        }
     }
     
     func loadUsers(filter: String) {
@@ -201,5 +214,22 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
             }
             self.allusersGrouped[firstCharString]?.append(currentUser)
         }
+    }
+    
+    // MARK: Usertableview cell delegate
+    func didTapAvatarImage(indexPath: IndexPath) {
+        let profileVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "profileView") as! ProfileTableViewController
+        
+        var user : User
+        if searchController.isActive && searchController.searchBar.text != "" {
+            user = filteredUsers[indexPath.row]
+        } else {
+            let sectionTitle = self.sectionTitleList[indexPath.section]
+            let users = self.allusersGrouped[sectionTitle]
+            user = users![indexPath.row]
+        }
+        
+        profileVC.user = user
+        self.navigationController?.pushViewController(profileVC, animated: true)
     }
 }
