@@ -93,7 +93,7 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating, 
             user = users![indexPath.row]
         }
         
-        cell.generateCellWith(user: allUsers[indexPath.row], indexPath: indexPath)
+        cell.generateCellWith(user: user, indexPath: indexPath)
         cell.delegate = self
         return cell
     }
@@ -132,6 +132,8 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating, 
             let users = self.allusersGrouped[sectionTitle]
             user = users![indexPath.row]
         }
+        
+        startPrivateChat(user1: User.currentUser()!, user2: user)
     }
     
     func loadUsers(filter: String) {
