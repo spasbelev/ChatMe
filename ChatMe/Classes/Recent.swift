@@ -33,7 +33,7 @@ func createRecent(members: [String], chatRoomId: String, withUserUserName: Strin
     var tempMembers = members
     reference(.Recent).whereField(kCHATROOMID, isEqualTo: chatRoomId).getDocuments { (snapshot, error) in
         guard let snapshot = snapshot else {return}
-        if snapshot.isEmpty {
+        if !snapshot.isEmpty {
             for recent in snapshot.documents {
                 let currentRecent = recent.data() as NSDictionary
                 if let currentUserId = currentRecent[kUSERID] {
@@ -76,4 +76,22 @@ func createRecentItems(userId: String, chatRoomId: String,members: [String], wit
     }
     
     localReference.setData(recent)
+}
+
+func deleteRecentChat(recentChatDict: NSDictionary) {
+    if let recentId = recentChatDict[kRECENTID] {
+        reference(.Recent).document(recentId as! String).delete()
+    }
+}
+
+//resetart chat
+
+func restartRecentChat(recent: NSDictionary) {
+    if recent[kTYPE] as! String == kPRIVATE {
+        createRecent(members: recent[kMEMBERSTOPUSH] as! [String], chatRoomId: recent[kCHATROOMID] as! String, withUserUserName: User.currentUser()!.firstname, typeOfChat: kPRIVATE, users: [User.currentUser()!], groupAvatar: nil)
+    }
+    
+    if recent[kTYPE] as! String == kGROUP {
+        createRecent(members: recent[kMEMBERSTOPUSH] as! [String], chatRoomId: recent[kCHATROOMID] as! String, withUserUserName: recent[kWITHUSERUSERNAME] as! String, typeOfChat: kGROUP, users: nil, groupAvatar: recent[kAVATAR] as? String)
+    }
 }
