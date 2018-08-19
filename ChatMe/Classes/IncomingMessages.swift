@@ -17,13 +17,14 @@ class IncomingMessage {
     }
     
     // MARK create message
-    func createMessage(messageDict: NSDictionary, chatRoomID: String) -> JSQMessage? {
+    func createMessage(messageDictionary: NSDictionary, chatRoomID: String) -> JSQMessage? {
         var message: JSQMessage?
         
-        let type = messageDict[kTYPE] as! String
+        let type = messageDictionary[kTYPE] as! String
+        
         switch type {
         case kTEXT:
-            message = createMessage(messageDict: messageDict, chatRoomID: chatRoomID)
+            message = createTextMessage(messageDict: messageDictionary, chatRoomId: chatRoomID)
         case kPICTURE:
             print("create pic")
         case kVIDEO:
@@ -43,7 +44,7 @@ class IncomingMessage {
         return nil
     }
     
-    func createTextMessage(messageDict: NSDictionary, chatRoomID: String) -> JSQMessage{
+    func createTextMessage(messageDict: NSDictionary, chatRoomId: String) -> JSQMessage{
         let name = messageDict[kSENDERNAME] as? String
         let userID = messageDict[kSENDERID] as? String
         

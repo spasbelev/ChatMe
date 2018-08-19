@@ -162,6 +162,14 @@ extension UIImage {
     }
 }
 
+func readTimeFrom(dateString: String) -> String {
+    let date = dateFormatter().date(from: dateString)
+    let currentDateFormat = dateFormatter()
+    currentDateFormat.dateFormat = "HH:mm"
+    
+    return currentDateFormat.string(from: date!)
+}
+
 func imageFromInitials(firstName: String?, lastName: String?, withBlock: @escaping (_ image: UIImage) -> Void) {
     
     var string: String!
