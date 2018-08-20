@@ -27,6 +27,7 @@
 		FA56F60F2128057000F16BDA /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F60E2128057000F16BDA /* ProfileTableViewController.swift */; };
 		FA56F6142128158A00F16BDA /* Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6132128158A00F16BDA /* Recent.swift */; };
 		FA9EB38B212836880035598F /* RecentChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EB38A212836880035598F /* RecentChatTableViewCell.swift */; };
+		FAA3F502212B357E00D9F4B7 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3F501212B357E00D9F4B7 /* Camera.swift */; };
 		FAD981F221286F6700E5E0C8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD981F121286F6700E5E0C8 /* ChatViewController.swift */; };
 		FAD981F4212884DC00E5E0C8 /* OutgoingMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD981F3212884DC00E5E0C8 /* OutgoingMessages.swift */; };
 		FAD981F62128B98200E5E0C8 /* IncomingMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD981F52128B98200E5E0C8 /* IncomingMessages.swift */; };
@@ -57,6 +58,7 @@
 		FA56F60E2128057000F16BDA /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		FA56F6132128158A00F16BDA /* Recent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recent.swift; sourceTree = "<group>"; };
 		FA9EB38A212836880035598F /* RecentChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChatTableViewCell.swift; sourceTree = "<group>"; };
+		FAA3F501212B357E00D9F4B7 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		FAD981F121286F6700E5E0C8 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		FAD981F3212884DC00E5E0C8 /* OutgoingMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessages.swift; sourceTree = "<group>"; };
 		FAD981F52128B98200E5E0C8 /* IncomingMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessages.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				FA31A0232120213A0033213F /* User.swift */,
 				FAD981F52128B98200E5E0C8 /* IncomingMessages.swift */,
 				FAD981F3212884DC00E5E0C8 /* OutgoingMessages.swift */,
+				FAA3F501212B357E00D9F4B7 /* Camera.swift */,
 				FA56F6132128158A00F16BDA /* Recent.swift */,
 			);
 			path = Classes;
@@ -352,6 +355,7 @@
 				FA1EF0F3211F5B5A003A6AAA /* WelcomeViewController.swift in Sources */,
 				FA1EF0E3211F56BA003A6AAA /* ViewController.swift in Sources */,
 				FA56F60F2128057000F16BDA /* ProfileTableViewController.swift in Sources */,
+				FAA3F502212B357E00D9F4B7 /* Camera.swift in Sources */,
 				FA1EF0E1211F56BA003A6AAA /* AppDelegate.swift in Sources */,
 				FA56F6142128158A00F16BDA /* Recent.swift in Sources */,
 				FA31A028212023570033213F /* CollectionReference.swift in Sources */,
