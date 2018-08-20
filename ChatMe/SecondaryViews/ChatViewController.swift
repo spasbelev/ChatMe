@@ -15,7 +15,7 @@ import AVFoundation
 import AVKit
 import FirebaseFirestore
 
-class ChatViewController: JSQMessagesViewController {
+class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDelegate , UINavigationControllerDelegate {
 
     var chatRoomId: String!
     var memberIds: [String]!
@@ -177,7 +177,7 @@ class ChatViewController: JSQMessagesViewController {
     
     override func didPressAccessoryButton(_ sender: UIButton!) {
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
+        let camera = Camera(delegate_: self)
         let takePhotosOrVideo = UIAlertAction(title: "Camera", style: .default) { (action) in
             print("camera")
         }
@@ -314,6 +314,15 @@ class ChatViewController: JSQMessagesViewController {
         } else {
             return 0.0
         }
+    }
+    
+    // MARK: UIIMagepickercontroller delegate
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let video = info[UIImagePickerControllerOriginalImage] as? NSURL
+        let picture = info[UIImagePickerControllerOriginalImage]  as? UIImage
+        
+        picker.dismiss(animated: true, completion: nil)
+        sendMessage(text: nil, data: Date(), picture: picture, location: nil, video: video, audio: nil)
     }
 
     // MARK custom send
