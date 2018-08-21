@@ -179,10 +179,12 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let camera = Camera(delegate_: self)
         let takePhotosOrVideo = UIAlertAction(title: "Camera", style: .default) { (action) in
+        
             print("camera")
         }
         
         let sharePhoto = UIAlertAction(title: "Photo Library", style: .default) { (action) in
+            camera.presentPhotoLibrary(target: self, canEdit: false)
         print("Photo")
         }
         
@@ -343,6 +345,20 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         if let text = text {
             outgoingMessage = OutgoingMessages(message: text, senderId: currentUser.objectId, senderName: currentUser.firstname, date: data, status: kDELIVERED, type: kTEXT)
+        }
+        
+        //picture msg
+        if let picture = picture {
+            uploadImage(image: picture, chatRoomId: chatRoomId, view: self.navigationController!.view) { (imageLink) in
+                if imageLink != nil {
+                    let text = kPICTURE
+                    outgoingMessage = OutgoingMessages(message: text, pictureLink: imageLink!, senderId: currentUser.objectId, senderName: currentUser.firstname, date: data, status: kDELIVERED, type: kPICTURE)
+                    JSQSystemSoundPlayer.jsq_playMessageSentSound()
+                    self.finishSendingMessage()
+                    outgoingMessage?.sendMessage(chatRoomID: self.chatRoomId, messageDict: outgoingMessage!.messageDictionary, memberIds: self.memberIds, membersToPush: self.membersToPush)
+                }
+            }
+            return
         }
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         self.finishSendingMessage()

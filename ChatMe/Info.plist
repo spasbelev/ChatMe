@@ -43,5 +43,17 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>ChatMe needs to use the &quot;Camera&quot;</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Chat me needs to access your &quot;Media Library&quot;</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>ChatMe needs access to your &quot;Photo Library&quot;</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>ChatMe needs access to your &quot;Microphone&quot;</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>ChatMe needs access to your &quot;Location&quot;</string>
+	<key>NSContactsUsageDescription</key>
+	<string>ChatMe needs access to your &quot;Contacts&quot;</string>
 </dict>
 </plist>
