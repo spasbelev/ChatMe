@@ -351,7 +351,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         if let picture = picture {
             uploadImage(image: picture, chatRoomId: chatRoomId, view: self.navigationController!.view) { (imageLink) in
                 if imageLink != nil {
-                    let text = kPICTURE
+                    let text = "\([kPICTURE])"
                     outgoingMessage = OutgoingMessages(message: text, pictureLink: imageLink!, senderId: currentUser.objectId, senderName: currentUser.firstname, date: data, status: kDELIVERED, type: kPICTURE)
                     JSQSystemSoundPlayer.jsq_playMessageSentSound()
                     self.finishSendingMessage()
@@ -360,6 +360,21 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             }
             return
         }
+        
+        // send video
+        if let video = video {
+            let videoData = NSData(contentsOfFile: video.path!)
+            let thumbnail = UIImageJPEGRepresentation(videoThumbnail(video: video), 0.3)
+            uploadVideo(video: videoData!, chatRoomId: chatRoomId, view: self.navigationController!.view) { (videoLink) in
+                if videoLink != nil {
+                    let text = "\([kVIDEO])"
+                    outgoingMessage = OutgoingMessages(message: text, videoLink: videoLink!, thumbNail: thumbnail! as NSData, senderId: currentUser.objectId, senderName: currentUser.firstname, date: Date(), status: kDELIVERED, type: kVIDEO)
+                    
+                }
+            }
+         return 
+        }
+        
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         self.finishSendingMessage()
         outgoingMessage!.sendMessage(chatRoomID: chatRoomId, messageDict: outgoingMessage!.messageDictionary, memberIds: memberIds, membersToPush: membersToPush)
