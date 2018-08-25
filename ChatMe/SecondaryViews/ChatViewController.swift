@@ -15,7 +15,8 @@ import AVFoundation
 import AVKit
 import FirebaseFirestore
 
-class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDelegate , UINavigationControllerDelegate {
+class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDelegate , UINavigationControllerDelegate, IQAudioRecorderViewControllerDelegate {
+    
 
     var chatRoomId: String!
     var memberIds: [String]!
@@ -113,9 +114,9 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         // set text color
         if data.senderId == User.currentId() {
-            cell.textView.textColor = .white
+            cell.textView?.textColor = .white
         } else {
-            cell.textView.textColor = .black
+            cell.textView?.textColor = .black
         }
         
         return cell
@@ -179,17 +180,15 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let camera = Camera(delegate_: self)
         let takePhotosOrVideo = UIAlertAction(title: "Camera", style: .default) { (action) in
-        
-            print("camera")
+            camera.presentMultyCamera(target: self, canEdit: false)
         }
         
         let sharePhoto = UIAlertAction(title: "Photo Library", style: .default) { (action) in
             camera.presentPhotoLibrary(target: self, canEdit: false)
-        print("Photo")
         }
         
         let shareVideo = UIAlertAction(title: "Video Library", style: .default) { (action) in
-            print("Video")
+            camera.presetnVideoLibrary(target: self, canEdit: false)
         }
         
         let shareLocation = UIAlertAction(title: "Share Location ", style: .default) { (action) in
@@ -229,7 +228,8 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             self.sendMessage(text: text, data: date, picture: nil, location: nil, video: nil, audio: nil)
             updateSendButton(isSend: false)
         } else {
-            
+            let audioVC = AudioViewController(withDelegate: self)
+            audioVC.presentAudioRecorder(target: self)
         }
     }
     
@@ -237,6 +237,36 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         self.loadMoreMessages(maxNumber: maxMessages, minNumber: minMessages)
         self.collectionView.reloadData()
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, didTapMessageBubbleAt indexPath: IndexPath!) {
+        let messageDict = objectMessage[indexPath.row]
+        let messageType = messageDict[kTYPE] as! String
+        
+        switch messageType {
+        case kPICTURE:
+            let message = messages[indexPath.row]
+            let mediaItem = message.media as! JSQPhotoMediaItem
+            let photos = IDMPhoto.photos(withImages: [mediaItem.image])
+            let browser = IDMPhotoBrowser(photos: photos)
+            self.present(browser!, animated: true, completion: nil)
+        case kLOCATION:
+            print("Location msg tap")
+        case kVIDEO:
+            let message = messages[indexPath.row]
+            let mediaItem = message.media as! VideoMessage
+            let player = AVPlayer(url: mediaItem.fileURL! as URL)
+            let moviePlayer = AVPlayerViewController()
+            let sessions = AVAudioSession.sharedInstance()
+            
+            try! sessions.setCategory(AVAudioSessionCategoryPlayAndRecord, mode: AVAudioSessionModeDefault, options: .defaultToSpeaker)
+            moviePlayer.player = player
+            self.present(moviePlayer, animated: true) {
+                moviePlayer.player!.play()
+            }
+        default:
+            print("Unknown msg tap")
+        }
     }
     
     // MARK: IBAction
@@ -320,7 +350,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     
     // MARK: UIIMagepickercontroller delegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let video = info[UIImagePickerControllerOriginalImage] as? NSURL
+        let video = info[UIImagePickerControllerMediaURL] as? NSURL
         let picture = info[UIImagePickerControllerOriginalImage]  as? UIImage
         
         picker.dismiss(animated: true, completion: nil)
@@ -351,7 +381,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         if let picture = picture {
             uploadImage(image: picture, chatRoomId: chatRoomId, view: self.navigationController!.view) { (imageLink) in
                 if imageLink != nil {
-                    let text = "\([kPICTURE])"
+                    let text = "[\(kPICTURE)]"
                     outgoingMessage = OutgoingMessages(message: text, pictureLink: imageLink!, senderId: currentUser.objectId, senderName: currentUser.firstname, date: data, status: kDELIVERED, type: kPICTURE)
                     JSQSystemSoundPlayer.jsq_playMessageSentSound()
                     self.finishSendingMessage()
@@ -367,12 +397,27 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             let thumbnail = UIImageJPEGRepresentation(videoThumbnail(video: video), 0.3)
             uploadVideo(video: videoData!, chatRoomId: chatRoomId, view: self.navigationController!.view) { (videoLink) in
                 if videoLink != nil {
-                    let text = "\([kVIDEO])"
+                    let text = "[\(kVIDEO)]"
                     outgoingMessage = OutgoingMessages(message: text, videoLink: videoLink!, thumbNail: thumbnail! as NSData, senderId: currentUser.objectId, senderName: currentUser.firstname, date: Date(), status: kDELIVERED, type: kVIDEO)
-                    
+                    JSQSystemSoundPlayer.jsq_playMessageSentSound()
+                    self.finishSendingMessage()
+                    outgoingMessage?.sendMessage(chatRoomID: self.chatRoomId, messageDict: outgoingMessage!.messageDictionary, memberIds: self.memberIds, membersToPush: self.membersToPush)
                 }
             }
          return 
+        }
+        
+        if let audioPath = audio {
+            uploadAudio(audioPath: audioPath, chatRoomId: chatRoomId, view: ((self.navigationController?.view)!)) { (audioLink) in
+                if audioLink != nil {
+                    let text = "[\(kAUDIO)]"
+                    outgoingMessage = OutgoingMessages(message: text, audio: audioLink!, senderId: currentUser.objectId, senderName: currentUser.firstname, date: Date(), status: kDELIVERED, type: kAUDIO)
+                    JSQSystemSoundPlayer.jsq_playMessageSentSound()
+                    self.finishSendingMessage()
+                    outgoingMessage?.sendMessage(chatRoomID: self.chatRoomId, messageDict: outgoingMessage!.messageDictionary, memberIds: self.memberIds, membersToPush: self.membersToPush)
+                }
+            }
+            return
         }
         
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
@@ -488,6 +533,16 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         let message = incomingMsg.createMessage(messageDictionary: messageDictionary, chatRoomID: chatRoomId)
         objectMessage.insert(messageDictionary, at: 0)
         messages.insert(message!, at: 0)
+    }
+    
+    //MARK: IQAudio Delegate
+    func audioRecorderController(_ controller: IQAudioRecorderViewController, didFinishWithAudioAtPath filePath: String) {
+        controller.dismiss(animated: true, completion: nil)
+        self.sendMessage(text: nil, data: Date(), picture: nil, location: nil, video: nil, audio: filePath)
+    }
+    
+    func audioRecorderControllerDidCancel(_ controller: IQAudioRecorderViewController) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
     //MARK: UpdateUI

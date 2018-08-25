@@ -28,9 +28,9 @@ class IncomingMessage {
         case kPICTURE:
             message = createPictureMessage(messageDict: messageDictionary)
         case kVIDEO:
-            print("create video")
+            message = createVideoMessage(messageDict: messageDictionary)
         case kAUDIO:
-            print("create audio")
+            message = createAudioMessage(messageDict: messageDictionary)
         case kLOCATION:
             print("location")
         default:
@@ -86,6 +86,68 @@ class IncomingMessage {
             }
         }
         return JSQMessage(senderId: userID, displayName: name, media: mediaItem)
+    }
+    
+    func createVideoMessage(messageDict: NSDictionary) -> JSQMessage{
+        let name = messageDict[kSENDERNAME] as? String
+        let userID = messageDict[kSENDERID] as? String
+        var date: Date!
+        
+        if let created = messageDict[kDATE] {
+            if(created as! String).count != 14 {
+                date = Date()
+            } else {
+                date = dateFormatter().date(from: created as! String)
+            }
+        } else {
+            date = Date()
+        }
+        let videoURL = NSURL(fileURLWithPath: messageDict[kVIDEO] as! String)
+        let mediaItem = VideoMessage(withFileUrl: videoURL, maskOutgoing: returnuOutgoingStatusForUser(senderId: userID!))
+        downloadVideo(videoUrl: messageDict[kVIDEO] as! String) { (isReadyToPlay, fileName) in
+            let url = NSURL(fileURLWithPath: fileInDocumentsDirectory(fileName: fileName))
+            mediaItem.status = kSUCCESS
+            mediaItem.fileURL = url
+            
+            imageFromData(pictureData: messageDict[kPICTURE] as! String, withBlock: { (image) in
+                if image != nil {
+                    mediaItem.image = image
+                    self.collectionView.reloadData()
+                }
+            })
+            // Reload view when video is set to remove loading bar
+            self.collectionView.reloadData()
+        }
+        return JSQMessage(senderId: userID, displayName: name, media: mediaItem)
+    }
+    
+    func createAudioMessage(messageDict: NSDictionary) -> JSQMessage{
+        let name = messageDict[kSENDERNAME] as? String
+        let userID = messageDict[kSENDERID] as? String
+        var date: Date!
+        
+        if let created = messageDict[kDATE] {
+            if(created as! String).count != 14 {
+                date = Date()
+            } else {
+                date = dateFormatter().date(from: created as! String)
+            }
+        } else {
+            date = Date()
+        }
+        let audioItem = JSQAudioMediaItem(data: nil)
+        audioItem.appliesMediaViewMaskAsOutgoing = returnuOutgoingStatusForUser(senderId: userID!)
+        let audioMessage = JSQMessage(senderId: userID!, displayName: name!, media: audioItem)
+        
+        // download audio
+        downloadAudio(audioUrl: messageDict[kAUDIO] as! String) { (fileName) in
+            let url = NSURL(fileURLWithPath: fileInDocumentsDirectory(fileName: fileName!))
+            let audioData = try? Data(contentsOf: url as URL)
+            audioItem.audioData = audioData
+            
+            self.collectionView.reloadData()
+        }
+        return audioMessage!
     }
    
     // MARK: Helper

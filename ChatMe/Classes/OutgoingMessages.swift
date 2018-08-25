@@ -24,11 +24,18 @@ class OutgoingMessages {
         messageDictionary = NSMutableDictionary(objects: [message,pictureLink, senderId, senderName, dateFormatter().string(from: date), status, type], forKeys: [kMESSAGE as NSCopying,kPICTURE as NSCopying, kSENDERID as NSCopying, kSENDERNAME as NSCopying, kDATE as NSCopying, kSTATUS as NSCopying, kTYPE as NSCopying])
     }
     
+    // audio msg
+    init(message: String,audio: String, senderId: String, senderName: String, date: Date, status: String, type: String) {
+        messageDictionary = NSMutableDictionary(objects: [message,audio, senderId, senderName, dateFormatter().string(from: date), status, type], forKeys: [kMESSAGE as NSCopying,kAUDIO as NSCopying, kSENDERID as NSCopying, kSENDERNAME as NSCopying, kDATE as NSCopying, kSTATUS as NSCopying, kTYPE as NSCopying])
+    }
+    
     // video msg
     init(message: String,videoLink: String,thumbNail: NSData, senderId: String, senderName: String, date: Date, status: String, type: String) {
         let picThumbnail = thumbNail.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         messageDictionary = NSMutableDictionary(objects: [message,videoLink,picThumbnail, senderId, senderName, dateFormatter().string(from: date), status, type], forKeys: [kMESSAGE as NSCopying,kVIDEO as NSCopying,kPICTURE as NSCopying, kSENDERID as NSCopying, kSENDERNAME as NSCopying, kDATE as NSCopying, kSTATUS as NSCopying, kTYPE as NSCopying])
     }
+    
+    
     
     
     func sendMessage(chatRoomID: String, messageDict: NSMutableDictionary, memberIds: [String], membersToPush: [String]) {
