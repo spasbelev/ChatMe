@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class SettingsTableViewController: UITableViewController {
 
@@ -14,12 +15,22 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var deleteButtonOutlet: UIButton!
     @IBOutlet weak var avatarStatusSwitch: UISwitch!
+    @IBOutlet weak var versionLabel: UILabel!
     
     var userDefaults = UserDefaults.standard
     var firstLoad: Bool?
     var avatarSwitchStatus = false
     
     @IBAction func cleanCacheButtonPressed(_ sender: Any) {
+        do {
+            let files = try FileManager.default.contentsOfDirectory(atPath: getDocumentsUrl().path)
+            for file in files {
+                try FileManager.default.removeItem(atPath: "\(getDocumentsUrl().path)/\(file)")
+            }
+            ProgressHUD.showSuccess("Media files cleaned")
+        } catch  {
+            ProgressHUD.showError("Couldn't clean Media files")
+        }
     }
     
     //MARK : IBACtions
@@ -56,7 +67,7 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func deleteAccountButtonPressed(_ sender: Any) {
         let optionMenu = UIAlertController(title: "Delete Account", message: "Are you sure you want to delete your account", preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (alert) in
-            // delete the user
+            self.deleteUser()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert) in
@@ -119,7 +130,7 @@ class SettingsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -157,7 +168,31 @@ class SettingsTableViewController: UITableViewController {
             }
         }
         
-        // set app version
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            versionLabel.text = version
+        }
+    }
+    
+    // MARK delete user
+    func deleteUser() {
+        // delete locally
+        userDefaults.removeObject(forKey: kPUSHID)
+        userDefaults.removeObject(forKey: kCURRENTUSER)
+        userDefaults.synchronize()
+        
+        // delete from firebase
+        reference(.User).document(User.currentId()).delete()
+        
+        User.deleteUser { (error) in
+            if error != nil {
+                DispatchQueue.main.async {
+                    ProgressHUD.showError("Couldn't delete user")
+                }
+                return
+            }
+            
+            self.showLoginView()
+        }
     }
     
     // MARK user defaults

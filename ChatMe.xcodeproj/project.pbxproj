@@ -26,6 +26,11 @@
 		FA39BE5921276D990088BD92 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39BE5821276D990088BD92 /* UserTableViewCell.swift */; };
 		FA39BE5C212772510088BD92 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39BE5B212772510088BD92 /* UsersTableViewController.swift */; };
 		FA39BE5E21277F6E0088BD92 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39BE5D21277F6E0088BD92 /* ChatsViewController.swift */; };
+		FA3C0E27213293E5002BCF31 /* BlockedUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C0E26213293E5002BCF31 /* BlockedUsersViewController.swift */; };
+		FA3C0E292132A009002BCF31 /* BackgroundCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C0E282132A009002BCF31 /* BackgroundCollectionViewController.swift */; };
+		FA3C0E2B2132A18B002BCF31 /* BackgroundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C0E2A2132A18B002BCF31 /* BackgroundCollectionViewCell.swift */; };
+		FA3C0E2D2132A8BE002BCF31 /* T&CViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C0E2C2132A8BE002BCF31 /* T&CViewController.swift */; };
+		FA3C0E2F2132AB0C002BCF31 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C0E2E2132AB0C002BCF31 /* EditProfileTableViewController.swift */; };
 		FA56F60F2128057000F16BDA /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F60E2128057000F16BDA /* ProfileTableViewController.swift */; };
 		FA56F6142128158A00F16BDA /* Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6132128158A00F16BDA /* Recent.swift */; };
 		FA9EB38B212836880035598F /* RecentChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EB38A212836880035598F /* RecentChatTableViewCell.swift */; };
@@ -61,6 +66,11 @@
 		FA39BE5821276D990088BD92 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		FA39BE5B212772510088BD92 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		FA39BE5D21277F6E0088BD92 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
+		FA3C0E26213293E5002BCF31 /* BlockedUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUsersViewController.swift; sourceTree = "<group>"; };
+		FA3C0E282132A009002BCF31 /* BackgroundCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewController.swift; sourceTree = "<group>"; };
+		FA3C0E2A2132A18B002BCF31 /* BackgroundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA3C0E2C2132A8BE002BCF31 /* T&CViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "T&CViewController.swift"; sourceTree = "<group>"; };
+		FA3C0E2E2132AB0C002BCF31 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		FA56F60E2128057000F16BDA /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		FA56F6132128158A00F16BDA /* Recent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recent.swift; sourceTree = "<group>"; };
 		FA9EB38A212836880035598F /* RecentChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChatTableViewCell.swift; sourceTree = "<group>"; };
@@ -170,6 +180,7 @@
 			children = (
 				FA39BE5821276D990088BD92 /* UserTableViewCell.swift */,
 				FA9EB38A212836880035598F /* RecentChatTableViewCell.swift */,
+				FA3C0E2A2132A18B002BCF31 /* BackgroundCollectionViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -196,6 +207,10 @@
 			isa = PBXGroup;
 			children = (
 				FA39BE5B212772510088BD92 /* UsersTableViewController.swift */,
+				FA3C0E282132A009002BCF31 /* BackgroundCollectionViewController.swift */,
+				FA3C0E2C2132A8BE002BCF31 /* T&CViewController.swift */,
+				FA3C0E2E2132AB0C002BCF31 /* EditProfileTableViewController.swift */,
+				FA3C0E26213293E5002BCF31 /* BlockedUsersViewController.swift */,
 				FA56F60E2128057000F16BDA /* ProfileTableViewController.swift */,
 				FAD981F121286F6700E5E0C8 /* ChatViewController.swift */,
 			);
@@ -356,13 +371,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA233030212C794F005DF89D /* Downloads.swift in Sources */,
+				FA3C0E2F2132AB0C002BCF31 /* EditProfileTableViewController.swift in Sources */,
 				FA31A02A21203F2F0033213F /* HelperFunctions.swift in Sources */,
 				FA31A026212021BE0033213F /* Constants.swift in Sources */,
 				FAD981F221286F6700E5E0C8 /* ChatViewController.swift in Sources */,
 				FA39BE53212705C80088BD92 /* FinishRegisterViewController.swift in Sources */,
 				FA31A0242120213A0033213F /* User.swift in Sources */,
 				FAD981F4212884DC00E5E0C8 /* OutgoingMessages.swift in Sources */,
+				FA3C0E2D2132A8BE002BCF31 /* T&CViewController.swift in Sources */,
 				FA39BE5921276D990088BD92 /* UserTableViewCell.swift in Sources */,
+				FA3C0E292132A009002BCF31 /* BackgroundCollectionViewController.swift in Sources */,
 				FA9EB38B212836880035598F /* RecentChatTableViewCell.swift in Sources */,
 				FA39BE5C212772510088BD92 /* UsersTableViewController.swift in Sources */,
 				FA1EF0F3211F5B5A003A6AAA /* WelcomeViewController.swift in Sources */,
@@ -371,10 +389,12 @@
 				FA38FF14212DC7EE008C1E15 /* PhotoMedia.swift in Sources */,
 				FAA3F502212B357E00D9F4B7 /* Camera.swift in Sources */,
 				FA1EF0E1211F56BA003A6AAA /* AppDelegate.swift in Sources */,
+				FA3C0E27213293E5002BCF31 /* BlockedUsersViewController.swift in Sources */,
 				FA56F6142128158A00F16BDA /* Recent.swift in Sources */,
 				FA31A028212023570033213F /* CollectionReference.swift in Sources */,
 				FACE11AB2131886500381E2A /* AudioViewController.swift in Sources */,
 				FA39BE5E21277F6E0088BD92 /* ChatsViewController.swift in Sources */,
+				FA3C0E2B2132A18B002BCF31 /* BackgroundCollectionViewCell.swift in Sources */,
 				FA39BE57212762EB0088BD92 /* SettingsTableViewController.swift in Sources */,
 				FAD981F62128B98200E5E0C8 /* IncomingMessages.swift in Sources */,
 				FACE11A921316E6400381E2A /* VideoMessage.swift in Sources */,

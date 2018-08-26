@@ -221,4 +221,8 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return [deleteAction, muteAction]
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
 }
