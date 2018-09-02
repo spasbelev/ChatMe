@@ -132,8 +132,18 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating, 
             let users = self.allusersGrouped[sectionTitle]
             user = users![indexPath.row]
         }
-        
-        startPrivateChat(user1: User.currentUser()!, user2: user)
+        if !checkBlockStatus(withUser: user) {
+            let chatVC = ChatViewController()
+            chatVC.title = user.firstname
+            chatVC.membersToPush = [User.currentId(), user.objectId]
+            chatVC.memberIds = [User.currentId(), user.objectId]
+            chatVC.chatRoomId = startPrivateChat(user1: User.currentUser()!, user2: user)
+            chatVC.isGroup = true
+            chatVC.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(chatVC, animated: true)
+        } else {
+            ProgressHUD.showError("This user is not available for chat")
+        }
     }
     
     func loadUsers(filter: String) {

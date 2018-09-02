@@ -80,6 +80,14 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         perform(Selector(("jsq_updateCollectionViewInsets")))
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        clearRecentCounter(chatRoomId: chatRoomId)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        clearRecentCounter(chatRoomId: chatRoomId)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -307,6 +315,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     
     // MARK: IBAction
     @objc func backAction() {
+        clearRecentCounter(chatRoomId: chatRoomId)
         removeListeners()
         self.navigationController?.popViewController(animated: true)
     }
