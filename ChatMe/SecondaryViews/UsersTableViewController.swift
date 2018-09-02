@@ -222,7 +222,9 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating, 
             if firstCharString != sectionTitle  {
                 sectionTitle = firstCharString
                 self.allusersGrouped[sectionTitle] = []
-                self.sectionTitleList.append(sectionTitle)
+                if !sectionTitleList.contains(sectionTitle) {
+                    self.sectionTitleList.append(sectionTitle)
+                }
             }
             self.allusersGrouped[firstCharString]?.append(currentUser)
         }

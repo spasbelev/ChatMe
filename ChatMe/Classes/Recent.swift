@@ -117,7 +117,7 @@ func restartRecentChat(recent: NSDictionary) {
     }
     
     if recent[kTYPE] as! String == kGROUP {
-        createRecent(members: recent[kMEMBERSTOPUSH] as! [String], chatRoomId: recent[kCHATROOMID] as! String, withUserUserName: recent[kWITHUSERUSERNAME] as! String, typeOfChat: kGROUP, users: nil, groupAvatar: recent[kAVATAR] as? String)
+        createRecent(members: recent[kMEMBERSTOPUSH] as! [String], chatRoomId: recent[kCHATROOMID] as! String, withUserUserName: recent[kWITHUSERFULLNAME] as! String, typeOfChat: kGROUP, users: nil, groupAvatar: recent[kAVATAR] as? String)
     }
 }
 
@@ -187,4 +187,19 @@ func getRecentsFor(chatRoomID: String) {
             }
         }
     }
+}
+
+//group
+
+func startGroupChat(group: Group) {
+    
+    let chatRoomId = group.groupDictionary[kGROUPID] as! String
+    let members = group.groupDictionary[kMEMBERS] as! [String]
+    
+    createRecent(members: members, chatRoomId: chatRoomId, withUserUserName: group.groupDictionary[kNAME] as! String, typeOfChat: kGROUP, users: nil, groupAvatar: group.groupDictionary[kAVATAR] as? String)
+}
+
+func createRecentsForNewMembers(groupId: String, groupName: String, membersToPush: [String], avatar: String) {
+    
+    createRecent(members: membersToPush, chatRoomId: groupId, withUserUserName: groupName, typeOfChat: kGROUP, users: nil, groupAvatar: avatar)
 }

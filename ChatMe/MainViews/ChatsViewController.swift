@@ -171,7 +171,7 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         var recent: NSDictionary!
         
-        if searchController.isActive && searchController.searchBar.text != "" {
+        if searchController.isActive && searchController.searchBar.text != " " {
             recent = filteredChats[indexPath.row]
         } else {
             recent = recentChats[indexPath.row]

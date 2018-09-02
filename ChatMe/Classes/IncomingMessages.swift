@@ -59,8 +59,8 @@ class IncomingMessage {
         } else {
             date = Date()
         }
-        let text = messageDict[kMESSAGE] as! String
-        return JSQMessage(senderId: userID, senderDisplayName: name, date: date, text: text)
+        let decryptedText = Encryption.decryptText(chatRoomId: chatRoomId, encryptedMessage: messageDict[kMESSAGE] as! String)
+        return JSQMessage(senderId: userID, senderDisplayName: name, date: date, text: decryptedText)
     }
     
     func createPictureMessage(messageDict: NSDictionary) -> JSQMessage{
