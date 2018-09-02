@@ -95,3 +95,9 @@ func restartRecentChat(recent: NSDictionary) {
         createRecent(members: recent[kMEMBERSTOPUSH] as! [String], chatRoomId: recent[kCHATROOMID] as! String, withUserUserName: recent[kWITHUSERUSERNAME] as! String, typeOfChat: kGROUP, users: nil, groupAvatar: recent[kAVATAR] as? String)
     }
 }
+
+
+// MARK: Clear counter
+func clearRecentCounterItem(recent: NSDictionary) {
+    reference(.Recent).document(recent[kRECENTID] as! String).updateData([kCOUNTER: 0])
+}

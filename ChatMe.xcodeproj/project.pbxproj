@@ -40,6 +40,8 @@
 		FAD981F221286F6700E5E0C8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD981F121286F6700E5E0C8 /* ChatViewController.swift */; };
 		FAD981F4212884DC00E5E0C8 /* OutgoingMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD981F3212884DC00E5E0C8 /* OutgoingMessages.swift */; };
 		FAD981F62128B98200E5E0C8 /* IncomingMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD981F52128B98200E5E0C8 /* IncomingMessages.swift */; };
+		FAF5A57D213B234000D41D20 /* PicturesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5A57C213B234000D41D20 /* PicturesCollectionViewController.swift */; };
+		FAF5A57F213B238600D41D20 /* PicturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5A57E213B238600D41D20 /* PicturesCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,8 @@
 		FAD981F121286F6700E5E0C8 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		FAD981F3212884DC00E5E0C8 /* OutgoingMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessages.swift; sourceTree = "<group>"; };
 		FAD981F52128B98200E5E0C8 /* IncomingMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessages.swift; sourceTree = "<group>"; };
+		FAF5A57C213B234000D41D20 /* PicturesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewController.swift; sourceTree = "<group>"; };
+		FAF5A57E213B238600D41D20 /* PicturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,7 @@
 			children = (
 				FA39BE5821276D990088BD92 /* UserTableViewCell.swift */,
 				FA9EB38A212836880035598F /* RecentChatTableViewCell.swift */,
+				FAF5A57E213B238600D41D20 /* PicturesCollectionViewCell.swift */,
 				FA3C0E2A2132A18B002BCF31 /* BackgroundCollectionViewCell.swift */,
 			);
 			path = CustomCells;
@@ -208,6 +213,7 @@
 			children = (
 				FA39BE5B212772510088BD92 /* UsersTableViewController.swift */,
 				FA3C0E282132A009002BCF31 /* BackgroundCollectionViewController.swift */,
+				FAF5A57C213B234000D41D20 /* PicturesCollectionViewController.swift */,
 				FA3C0E2C2132A8BE002BCF31 /* T&CViewController.swift */,
 				FA3C0E2E2132AB0C002BCF31 /* EditProfileTableViewController.swift */,
 				FA3C0E26213293E5002BCF31 /* BlockedUsersViewController.swift */,
@@ -372,6 +378,7 @@
 			files = (
 				FA233030212C794F005DF89D /* Downloads.swift in Sources */,
 				FA3C0E2F2132AB0C002BCF31 /* EditProfileTableViewController.swift in Sources */,
+				FAF5A57F213B238600D41D20 /* PicturesCollectionViewCell.swift in Sources */,
 				FA31A02A21203F2F0033213F /* HelperFunctions.swift in Sources */,
 				FA31A026212021BE0033213F /* Constants.swift in Sources */,
 				FAD981F221286F6700E5E0C8 /* ChatViewController.swift in Sources */,
@@ -381,6 +388,7 @@
 				FA3C0E2D2132A8BE002BCF31 /* T&CViewController.swift in Sources */,
 				FA39BE5921276D990088BD92 /* UserTableViewCell.swift in Sources */,
 				FA3C0E292132A009002BCF31 /* BackgroundCollectionViewController.swift in Sources */,
+				FAF5A57D213B234000D41D20 /* PicturesCollectionViewController.swift in Sources */,
 				FA9EB38B212836880035598F /* RecentChatTableViewCell.swift in Sources */,
 				FA39BE5C212772510088BD92 /* UsersTableViewController.swift in Sources */,
 				FA1EF0F3211F5B5A003A6AAA /* WelcomeViewController.swift in Sources */,

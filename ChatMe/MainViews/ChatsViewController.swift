@@ -143,7 +143,7 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    func showUserProfile(user: User) {
+     func showUserProfile(user: User) {
         let profileVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "profileView") as! ProfileTableViewController
         
         profileVC.user = user
