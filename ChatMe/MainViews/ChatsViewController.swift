@@ -32,22 +32,26 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     override func viewWillAppear(_ animated: Bool) {
         loadRecentChats()
+        tableView.tableFooterView = UIView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         recentListener.remove()
-        tableView.tableFooterView = UIView()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
+    // MARK: IBAction
     @IBAction func createNewChatButtonPressed(_ sender: Any) {
-        
-        let userVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "usersTableView") as! UsersTableViewController
-        
-        self.navigationController?.pushViewController(userVC, animated: true)
+            
+        selectUserForChat(isGroup: false)
     }
+    
+    @objc func groupButtonPressed() {
+        selectUserForChat(isGroup: true)
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -99,25 +103,21 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 45))
         
         let buttonView = UIView(frame: CGRect(x: 0, y: 5, width: tableView.frame.width, height: 35))
-        
         let groupButton = UIButton(frame: CGRect(x: tableView.frame.width - 110, y: 10, width: 100, height: 20))
-        
         groupButton.addTarget(self, action: #selector(self.groupButtonPressed), for: .touchUpInside)
-        
         groupButton.setTitle("New Group", for: .normal)
-        let buttonColor = #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)
+        let buttonColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
         groupButton.setTitleColor(buttonColor, for: .normal)
         
-        let lineView = UIView(frame: CGRect(x: 0, y: headerView.frame.width, width: tableView.frame.width, height: 1))
+        
+        let lineView = UIView(frame: CGRect(x: 0, y: headerView.frame.height - 1, width: tableView.frame.width, height: 1))
         lineView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        
         buttonView.addSubview(groupButton)
         headerView.addSubview(buttonView)
         headerView.addSubview(lineView)
+        
         tableView.tableHeaderView = headerView
-    }
-    
-    @objc func groupButtonPressed() {
-        print("button pressed")
     }
     
     func didTapAvatarImage(indexPath: IndexPath) {
@@ -132,10 +132,10 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         if recentChat[kTYPE] as! String == kPRIVATE {
             reference(.User).document(recentChat[kWITHUSERUSERID] as! String).getDocument { (snapshot, error) in
-                guard let snapshpt = snapshot else{return}
+                guard let snapshot = snapshot else{return}
                 
-                if snapshot!.exists {
-                    let userDict = snapshot!.data() as! NSDictionary
+                if snapshot.exists {
+                    let userDict = snapshot.data() as! NSDictionary
                     let tempUser = User(_dictionary: userDict)
                     self.showUserProfile(user: tempUser)
                 }
@@ -238,5 +238,13 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         // save changes to Firestore
         updateExistingRecentWithNewValues(chatRoomID: recent[kCHATROOMID] as! String, members: recent[kMEMBERS] as! [String], withValues: [kMEMBERSTOPUSH: memebersToPush])
+    }
+    
+    func selectUserForChat(isGroup: Bool) {
+        let contactsVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "contactsView") as! ContactsTableViewController
+        
+        contactsVC.isGroup = isGroup
+        
+        self.navigationController?.pushViewController(contactsVC, animated: true)
     }
 }
