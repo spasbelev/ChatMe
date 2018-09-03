@@ -91,6 +91,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadUserDefaults()
         createTypingObserver()
         JSQMessagesCollectionViewCell.registerMenuAction(#selector(self.delete))
         navigationItem.largeTitleDisplayMode = .never
@@ -330,7 +331,9 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     }
     
     @objc func showGroup() {
-        print("show group")
+        let groupVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "groupView") as! GroupViewController
+        groupVC.group = group!
+        self.navigationController?.pushViewController(groupVC, animated: true)
     }
     
     @objc func showProfile() {
@@ -810,8 +813,8 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             }
         }
         
-//        titleLabel.text = titleName
-//        subTitleLabel.text = ""
+        titleLabel.text = chatTitle
+        subTitleLabel.text = ""
     }
     
     // MARK: Helper functions
@@ -870,6 +873,33 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
                 self.group = snapshot.data() as! NSDictionary
                 self.setUIForGroupChat()
             }
+        }
+    }
+    
+    func loadUserDefaults() {
+        firstLoad = userDefaults.bool(forKey: kFIRSTRUN)
+        
+        if !firstLoad! {
+            userDefaults.set(true, forKey: kFIRSTRUN)
+            userDefaults.set(showAvatar, forKey: kSHOWAVATAR)
+            
+            userDefaults.synchronize()
+        }
+        
+        showAvatar = userDefaults.bool(forKey: kSHOWAVATAR)
+        checkForBackgroundImage()
+    }
+    
+    func checkForBackgroundImage() {
+        
+        if userDefaults.object(forKey: kBACKGROUBNDIMAGE) != nil {
+            self.collectionView.backgroundColor = .clear
+            
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+            imageView.image = UIImage(named: userDefaults.object(forKey: kBACKGROUBNDIMAGE) as! String)!
+            imageView.contentMode = .scaleAspectFill
+            
+            self.view.insertSubview(imageView, at: 0)
         }
     }
 }

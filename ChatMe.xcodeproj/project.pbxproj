@@ -34,6 +34,8 @@
 		FA3C0E2B2132A18B002BCF31 /* BackgroundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C0E2A2132A18B002BCF31 /* BackgroundCollectionViewCell.swift */; };
 		FA3C0E2D2132A8BE002BCF31 /* T&CViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C0E2C2132A8BE002BCF31 /* T&CViewController.swift */; };
 		FA3C0E2F2132AB0C002BCF31 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C0E2E2132AB0C002BCF31 /* EditProfileTableViewController.swift */; };
+		FA542D9A213D9BB500896549 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA542D99213D9BB500896549 /* GroupViewController.swift */; };
+		FA542D9C213D9F8500896549 /* InviteUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA542D9B213D9F8500896549 /* InviteUsersTableViewController.swift */; };
 		FA56F60F2128057000F16BDA /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F60E2128057000F16BDA /* ProfileTableViewController.swift */; };
 		FA56F6142128158A00F16BDA /* Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6132128158A00F16BDA /* Recent.swift */; };
 		FA7CAACD213C2048004C536B /* GroupMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CAACC213C2048004C536B /* GroupMemberCollectionViewCell.swift */; };
@@ -82,6 +84,8 @@
 		FA3C0E2A2132A18B002BCF31 /* BackgroundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA3C0E2C2132A8BE002BCF31 /* T&CViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "T&CViewController.swift"; sourceTree = "<group>"; };
 		FA3C0E2E2132AB0C002BCF31 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
+		FA542D99213D9BB500896549 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		FA542D9B213D9F8500896549 /* InviteUsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteUsersTableViewController.swift; sourceTree = "<group>"; };
 		FA56F60E2128057000F16BDA /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		FA56F6132128158A00F16BDA /* Recent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recent.swift; sourceTree = "<group>"; };
 		FA7CAACC213C2048004C536B /* GroupMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -243,6 +247,8 @@
 				FAF5A57C213B234000D41D20 /* PicturesCollectionViewController.swift */,
 				FA39BC16213BE990005FE853 /* ContactsTableViewController.swift */,
 				FA7CAACE213C2289004C536B /* NewGroupViewController.swift */,
+				FA542D99213D9BB500896549 /* GroupViewController.swift */,
+				FA542D9B213D9F8500896549 /* InviteUsersTableViewController.swift */,
 				FA56F60E2128057000F16BDA /* ProfileTableViewController.swift */,
 				FAD981F121286F6700E5E0C8 /* ChatViewController.swift */,
 			);
@@ -421,12 +427,14 @@
 				FA39BE5C212772510088BD92 /* UsersTableViewController.swift in Sources */,
 				FA7CAACF213C2289004C536B /* NewGroupViewController.swift in Sources */,
 				FA1EF0F3211F5B5A003A6AAA /* WelcomeViewController.swift in Sources */,
+				FA542D9C213D9F8500896549 /* InviteUsersTableViewController.swift in Sources */,
 				FA1EF0E3211F56BA003A6AAA /* ViewController.swift in Sources */,
 				FA56F60F2128057000F16BDA /* ProfileTableViewController.swift in Sources */,
 				FA7CAACD213C2048004C536B /* GroupMemberCollectionViewCell.swift in Sources */,
 				FA38FF14212DC7EE008C1E15 /* PhotoMedia.swift in Sources */,
 				FAA3F502212B357E00D9F4B7 /* Camera.swift in Sources */,
 				FA1EF0E1211F56BA003A6AAA /* AppDelegate.swift in Sources */,
+				FA542D9A213D9BB500896549 /* GroupViewController.swift in Sources */,
 				FA39BC1B213C0D95005FE853 /* Encryption.swift in Sources */,
 				FA3C0E27213293E5002BCF31 /* BlockedUsersViewController.swift in Sources */,
 				FA56F6142128158A00F16BDA /* Recent.swift in Sources */,
