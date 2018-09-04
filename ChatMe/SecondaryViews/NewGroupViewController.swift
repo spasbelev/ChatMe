@@ -116,7 +116,7 @@ class NewGroupViewController: UIViewController, UICollectionViewDataSource, UICo
         
         let optionMenu = UIAlertController(title: "Choose group Icon", message: nil, preferredStyle: .actionSheet)
         
-        let takePhotoActio = UIAlertAction(title: "Take/Choose Photo", style: .default) { (alert) in
+        let takePhotoAction = UIAlertAction(title: "Take/Choose Photo", style: .default) { (alert) in
             
             let imagePicker = ImagePickerController()
             imagePicker.delegate = self
@@ -140,7 +140,7 @@ class NewGroupViewController: UIViewController, UICollectionViewDataSource, UICo
             optionMenu.addAction(resetAction)
         }
         
-        optionMenu.addAction(takePhotoActio)
+        optionMenu.addAction(takePhotoAction)
         optionMenu.addAction(cancelAction)
         
         if ( UI_USER_INTERFACE_IDIOM() == .pad )

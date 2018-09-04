@@ -155,10 +155,14 @@
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="WCZ-LM-Bu8">
                                 <rect key="frame" x="137" y="99" width="100" height="100"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="SVu-is-EWp"/>
                                     <constraint firstAttribute="height" constant="100" id="dib-hd-BAG"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="4mk-en-F06" appends="YES" id="Szu-Ok-sQ2"/>
+                                </connections>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1lJ-Gc-HK4">
                                 <rect key="frame" x="16" y="209" width="343" height="30"/>
@@ -226,6 +230,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pPd-m4-YVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4mk-en-F06" userLabel="AvatarTap">
+                    <connections>
+                        <action selector="avatarImageTap:" destination="3ph-l0-z9E" id="KwO-1o-fRm"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="508" y="144.3778110944528"/>
         </scene>
