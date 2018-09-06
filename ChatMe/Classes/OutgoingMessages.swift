@@ -52,7 +52,8 @@ class OutgoingMessages {
     }
     
     class func deleteMessage(withId: String, chatRoomId: String) {
-        
+        reference(.Message).document(User.currentId()).collection(chatRoomId).document(withId).delete()
+
     }
     
     class func updateMessage(withId: String, chatRoomId: String, memberIds: [String]) {
