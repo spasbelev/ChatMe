@@ -40,6 +40,4 @@ class Encryption {
         return message as String
     }
     
-    
-    
 }

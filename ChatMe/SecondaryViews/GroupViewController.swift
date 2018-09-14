@@ -162,6 +162,4 @@ class GroupViewController: UIViewController, ImagePickerDelegate {
     func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-
 }

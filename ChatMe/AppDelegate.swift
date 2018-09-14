@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         if User.currentUser() != nil {
             updateCurrentUserInFirestore(withValues: [kISONLINE: true]) { (success) in
-                <#code#>
+                
             }
         }
     }
@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         if User.currentUser() != nil {
             updateCurrentUserInFirestore(withValues: [kISONLINE: false]) { (success) in
-                <#code#>
+                
             }
         }
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
