@@ -16,6 +16,13 @@ pod "JSQMessagesViewController", "7.3.3"
 pod "IDMPhotoBrowser"
 pod "ImagePicker"
 pod "RNCryptor"
+pod "SinchRTC"
+pod "OneSignal"
   # Pods for ChatMe
 
+end
+
+target 'OneSignalNotificationServiceExtension' do
+  use_frameworks!
+  pod 'OneSignal'
 end

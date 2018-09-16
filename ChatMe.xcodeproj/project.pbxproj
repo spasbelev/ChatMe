@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25185ABE3C61BB7A07BB5539 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EA0305F3D774C96B57AF83 /* Pods_OneSignalNotificationServiceExtension.framework */; };
 		D87788BFDC24E0B9F8307AD5 /* Pods_ChatMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B446F868D37C8F5CE2C42F /* Pods_ChatMe.framework */; };
 		FA1EF0E1211F56BA003A6AAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1EF0E0211F56BA003A6AAA /* AppDelegate.swift */; };
 		FA1EF0E3211F56BA003A6AAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1EF0E2211F56BA003A6AAA /* ViewController.swift */; };
@@ -14,6 +15,9 @@
 		FA1EF0E8211F56BB003A6AAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA1EF0E7211F56BB003A6AAA /* Assets.xcassets */; };
 		FA1EF0EB211F56BB003A6AAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA1EF0E9211F56BB003A6AAA /* LaunchScreen.storyboard */; };
 		FA1EF0F3211F5B5A003A6AAA /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1EF0F2211F5B5A003A6AAA /* WelcomeViewController.swift */; };
+		FA206F0C214D140000E389E9 /* PushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA206F0B214D140000E389E9 /* PushNotifications.swift */; };
+		FA206F14214D1B4500E389E9 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA206F13214D1B4500E389E9 /* NotificationService.swift */; };
+		FA206F18214D1B4500E389E9 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FA206F11214D1B4400E389E9 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FA233030212C794F005DF89D /* Downloads.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA23302F212C794F005DF89D /* Downloads.swift */; };
 		FA31A02221201FB90033213F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA31A02121201FB90033213F /* GoogleService-Info.plist */; };
 		FA31A0242120213A0033213F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31A0232120213A0033213F /* User.swift */; };
@@ -38,11 +42,21 @@
 		FA542D9C213D9F8500896549 /* InviteUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA542D9B213D9F8500896549 /* InviteUsersTableViewController.swift */; };
 		FA56F60F2128057000F16BDA /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F60E2128057000F16BDA /* ProfileTableViewController.swift */; };
 		FA56F6142128158A00F16BDA /* Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56F6132128158A00F16BDA /* Recent.swift */; };
+		FA729A83214D2804002B6EEF /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA729A82214D2804002B6EEF /* CallViewController.swift */; };
 		FA7CAACD213C2048004C536B /* GroupMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CAACC213C2048004C536B /* GroupMemberCollectionViewCell.swift */; };
 		FA7CAACF213C2289004C536B /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CAACE213C2289004C536B /* NewGroupViewController.swift */; };
+		FA8341EA214BFDDB00192130 /* CallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8341E9214BFDDB00192130 /* CallTableViewCell.swift */; };
+		FA8341EC214BFEF900192130 /* CallClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8341EB214BFEF900192130 /* CallClass.swift */; };
+		FA8341EE214C07F700192130 /* CallTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8341ED214C07F700192130 /* CallTableViewController.swift */; };
 		FA9EB38B212836880035598F /* RecentChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9EB38A212836880035598F /* RecentChatTableViewCell.swift */; };
 		FAA3F502212B357E00D9F4B7 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3F501212B357E00D9F4B7 /* Camera.swift */; };
+		FAB6DCC8214C0E1A001685B4 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB6DCC7214C0E1A001685B4 /* Test.m */; };
+		FAB6DCCA214C0F16001685B4 /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB6DCC9214C0F16001685B4 /* PushKit.framework */; };
 		FAC00204213C451700C82169 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC00203213C451700C82169 /* Group.swift */; };
+		FAC7C728214D68C4000BF471 /* ringback.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAC7C726214D68C3000BF471 /* ringback.wav */; };
+		FAC7C729214D68C4000BF471 /* incoming.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAC7C727214D68C4000BF471 /* incoming.wav */; };
+		FAC7C72B214D8E5C000BF471 /* Badges.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC7C72A214D8E5C000BF471 /* Badges.swift */; };
+		FAC7C72D214D93E8000BF471 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAC7C72C214D93E8000BF471 /* Localizable.strings */; };
 		FACE11A921316E6400381E2A /* VideoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACE11A821316E6400381E2A /* VideoMessage.swift */; };
 		FACE11AB2131886500381E2A /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACE11AA2131886500381E2A /* AudioViewController.swift */; };
 		FAD981F221286F6700E5E0C8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD981F121286F6700E5E0C8 /* ChatViewController.swift */; };
@@ -52,10 +66,37 @@
 		FAF5A57F213B238600D41D20 /* PicturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5A57E213B238600D41D20 /* PicturesCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		FA206F16214D1B4500E389E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA1EF0D5211F56BA003A6AAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA206F10214D1B4400E389E9;
+			remoteInfo = OneSignalNotificationServiceExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FA206F1C214D1B4500E389E9 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FA206F18214D1B4500E389E9 /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0ADB401079D6A66B9F24713D /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		3284B36D22B57E27AC0A57BB /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.release.xcconfig"; sourceTree = "<group>"; };
 		48B446F868D37C8F5CE2C42F /* Pods_ChatMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A9A68A1803307588954D2F1 /* Pods-ChatMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatMe/Pods-ChatMe.debug.xcconfig"; sourceTree = "<group>"; };
 		5C482066EEF1FCDBAE72E7FA /* Pods-ChatMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatMe/Pods-ChatMe.release.xcconfig"; sourceTree = "<group>"; };
+		63EA0305F3D774C96B57AF83 /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA1EF0DD211F56BA003A6AAA /* ChatMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA1EF0E0211F56BA003A6AAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA1EF0E2211F56BA003A6AAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +105,11 @@
 		FA1EF0EA211F56BB003A6AAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA1EF0EC211F56BB003A6AAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA1EF0F2211F5B5A003A6AAA /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		FA206F0A214D0DEA00E389E9 /* ChatMe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChatMe.entitlements; sourceTree = "<group>"; };
+		FA206F0B214D140000E389E9 /* PushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotifications.swift; sourceTree = "<group>"; };
+		FA206F11214D1B4400E389E9 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA206F13214D1B4500E389E9 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		FA206F15214D1B4500E389E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA23302F212C794F005DF89D /* Downloads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloads.swift; sourceTree = "<group>"; };
 		FA31A02121201FB90033213F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA31A0232120213A0033213F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -88,11 +134,24 @@
 		FA542D9B213D9F8500896549 /* InviteUsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteUsersTableViewController.swift; sourceTree = "<group>"; };
 		FA56F60E2128057000F16BDA /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		FA56F6132128158A00F16BDA /* Recent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recent.swift; sourceTree = "<group>"; };
+		FA729A81214D1D92002B6EEF /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
+		FA729A82214D2804002B6EEF /* CallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
 		FA7CAACC213C2048004C536B /* GroupMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA7CAACE213C2289004C536B /* NewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
+		FA8341E9214BFDDB00192130 /* CallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTableViewCell.swift; sourceTree = "<group>"; };
+		FA8341EB214BFEF900192130 /* CallClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallClass.swift; sourceTree = "<group>"; };
+		FA8341ED214C07F700192130 /* CallTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTableViewController.swift; sourceTree = "<group>"; };
 		FA9EB38A212836880035598F /* RecentChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChatTableViewCell.swift; sourceTree = "<group>"; };
 		FAA3F501212B357E00D9F4B7 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		FAB6DCC5214C0E1A001685B4 /* ChatMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChatMe-Bridging-Header.h"; sourceTree = "<group>"; };
+		FAB6DCC6214C0E1A001685B4 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		FAB6DCC7214C0E1A001685B4 /* Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
+		FAB6DCC9214C0F16001685B4 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
 		FAC00203213C451700C82169 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		FAC7C726214D68C3000BF471 /* ringback.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ringback.wav; path = "../../../../Downloads/ringtones 3/ringback.wav"; sourceTree = "<group>"; };
+		FAC7C727214D68C4000BF471 /* incoming.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = incoming.wav; path = "../../../../Downloads/ringtones 3/incoming.wav"; sourceTree = "<group>"; };
+		FAC7C72A214D8E5C000BF471 /* Badges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badges.swift; sourceTree = "<group>"; };
+		FAC7C72C214D93E8000BF471 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FACE11A821316E6400381E2A /* VideoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMessage.swift; sourceTree = "<group>"; };
 		FACE11AA2131886500381E2A /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		FAD981F121286F6700E5E0C8 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -107,7 +166,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB6DCCA214C0F16001685B4 /* PushKit.framework in Frameworks */,
 				D87788BFDC24E0B9F8307AD5 /* Pods_ChatMe.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA206F0E214D1B4400E389E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25185ABE3C61BB7A07BB5539 /* Pods_OneSignalNotificationServiceExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +187,8 @@
 			children = (
 				5A9A68A1803307588954D2F1 /* Pods-ChatMe.debug.xcconfig */,
 				5C482066EEF1FCDBAE72E7FA /* Pods-ChatMe.release.xcconfig */,
+				0ADB401079D6A66B9F24713D /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */,
+				3284B36D22B57E27AC0A57BB /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -126,7 +196,9 @@
 		818B4F60E2476FC327748564 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAB6DCC9214C0F16001685B4 /* PushKit.framework */,
 				48B446F868D37C8F5CE2C42F /* Pods_ChatMe.framework */,
+				63EA0305F3D774C96B57AF83 /* Pods_OneSignalNotificationServiceExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -135,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				FA1EF0DF211F56BA003A6AAA /* ChatMe */,
+				FA206F12214D1B4500E389E9 /* OneSignalNotificationServiceExtension */,
 				FA1EF0DE211F56BA003A6AAA /* Products */,
 				73EBD8AFBC3F3FFCA782DF41 /* Pods */,
 				818B4F60E2476FC327748564 /* Frameworks */,
@@ -145,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				FA1EF0DD211F56BA003A6AAA /* ChatMe.app */,
+				FA206F11214D1B4400E389E9 /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,8 +226,11 @@
 		FA1EF0DF211F56BA003A6AAA /* ChatMe */ = {
 			isa = PBXGroup;
 			children = (
+				FA206F0A214D0DEA00E389E9 /* ChatMe.entitlements */,
 				FA39BE55212706540088BD92 /* Classes */,
 				FA1EF0E0211F56BA003A6AAA /* AppDelegate.swift */,
+				FAB6DCC6214C0E1A001685B4 /* Test.h */,
+				FAB6DCC7214C0E1A001685B4 /* Test.m */,
 				FA1EF0E2211F56BA003A6AAA /* ViewController.swift */,
 				FA56F6122128130D00F16BDA /* SecondaryViews */,
 				FA39BE5A212772270088BD92 /* CustomCells */,
@@ -162,11 +239,24 @@
 				FA56F610212812DE00F16BDA /* WelcomeView */,
 				FA56F611212812FA00F16BDA /* MainViews */,
 				FA1EF0E7211F56BB003A6AAA /* Assets.xcassets */,
+				FAC7C727214D68C4000BF471 /* incoming.wav */,
+				FAC7C726214D68C3000BF471 /* ringback.wav */,
 				FA1EF0E9211F56BB003A6AAA /* LaunchScreen.storyboard */,
 				FA1EF0EC211F56BB003A6AAA /* Info.plist */,
 				FA39BE54212706300088BD92 /* Helpers */,
+				FAB6DCC5214C0E1A001685B4 /* ChatMe-Bridging-Header.h */,
 			);
 			path = ChatMe;
+			sourceTree = "<group>";
+		};
+		FA206F12214D1B4500E389E9 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				FA729A81214D1D92002B6EEF /* OneSignalNotificationServiceExtension.entitlements */,
+				FA206F13214D1B4500E389E9 /* NotificationService.swift */,
+				FA206F15214D1B4500E389E9 /* Info.plist */,
+			);
+			path = OneSignalNotificationServiceExtension;
 			sourceTree = "<group>";
 		};
 		FA39BC15213BE951005FE853 /* SettingsView */ = {
@@ -185,7 +275,9 @@
 			children = (
 				FA31A025212021BE0033213F /* Constants.swift */,
 				FA31A027212023570033213F /* CollectionReference.swift */,
+				FAC7C72A214D8E5C000BF471 /* Badges.swift */,
 				FA31A02921203F2F0033213F /* HelperFunctions.swift */,
+				FAC7C72C214D93E8000BF471 /* Localizable.strings */,
 				FA23302F212C794F005DF89D /* Downloads.swift */,
 			);
 			path = Helpers;
@@ -200,6 +292,8 @@
 				FAD981F3212884DC00E5E0C8 /* OutgoingMessages.swift */,
 				FAA3F501212B357E00D9F4B7 /* Camera.swift */,
 				FA39BC18213C079F005FE853 /* CountryCode.swift */,
+				FA206F0B214D140000E389E9 /* PushNotifications.swift */,
+				FA8341EB214BFEF900192130 /* CallClass.swift */,
 				FAC00203213C451700C82169 /* Group.swift */,
 				FA56F6132128158A00F16BDA /* Recent.swift */,
 				FA38FF13212DC7EE008C1E15 /* PhotoMedia.swift */,
@@ -214,6 +308,7 @@
 			children = (
 				FA39BE5821276D990088BD92 /* UserTableViewCell.swift */,
 				FA7CAACC213C2048004C536B /* GroupMemberCollectionViewCell.swift */,
+				FA8341E9214BFDDB00192130 /* CallTableViewCell.swift */,
 				FA9EB38A212836880035598F /* RecentChatTableViewCell.swift */,
 				FAF5A57E213B238600D41D20 /* PicturesCollectionViewCell.swift */,
 				FA3C0E2A2132A18B002BCF31 /* BackgroundCollectionViewCell.swift */,
@@ -234,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				FA39BE5D21277F6E0088BD92 /* ChatsViewController.swift */,
+				FA8341ED214C07F700192130 /* CallTableViewController.swift */,
 				FA39BE56212762EB0088BD92 /* SettingsTableViewController.swift */,
 			);
 			path = MainViews;
@@ -251,6 +347,7 @@
 				FA542D9B213D9F8500896549 /* InviteUsersTableViewController.swift */,
 				FA56F60E2128057000F16BDA /* ProfileTableViewController.swift */,
 				FAD981F121286F6700E5E0C8 /* ChatViewController.swift */,
+				FA729A82214D2804002B6EEF /* CallViewController.swift */,
 			);
 			path = SecondaryViews;
 			sourceTree = "<group>";
@@ -267,15 +364,35 @@
 				FA1EF0DA211F56BA003A6AAA /* Frameworks */,
 				FA1EF0DB211F56BA003A6AAA /* Resources */,
 				B656EE14BB6D71768BCE56E7 /* [CP] Embed Pods Frameworks */,
+				FA206F1C214D1B4500E389E9 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FA206F17214D1B4500E389E9 /* PBXTargetDependency */,
 			);
 			name = ChatMe;
 			productName = ChatMe;
 			productReference = FA1EF0DD211F56BA003A6AAA /* ChatMe.app */;
 			productType = "com.apple.product-type.application";
+		};
+		FA206F10214D1B4400E389E9 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA206F19214D1B4500E389E9 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
+			buildPhases = (
+				817DF380B9C306CDBB1D8EC3 /* [CP] Check Pods Manifest.lock */,
+				FA206F0D214D1B4400E389E9 /* Sources */,
+				FA206F0E214D1B4400E389E9 /* Frameworks */,
+				FA206F0F214D1B4400E389E9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneSignalNotificationServiceExtension;
+			productName = OneSignalNotificationServiceExtension;
+			productReference = FA206F11214D1B4400E389E9 /* OneSignalNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -289,6 +406,29 @@
 				TargetAttributes = {
 					FA1EF0DC211F56BA003A6AAA = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+					FA206F10214D1B4400E389E9 = {
+						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -306,6 +446,7 @@
 			projectRoot = "";
 			targets = (
 				FA1EF0DC211F56BA003A6AAA /* ChatMe */,
+				FA206F10214D1B4400E389E9 /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -317,14 +458,42 @@
 			files = (
 				FA1EF0EB211F56BB003A6AAA /* LaunchScreen.storyboard in Resources */,
 				FA1EF0E8211F56BB003A6AAA /* Assets.xcassets in Resources */,
+				FAC7C728214D68C4000BF471 /* ringback.wav in Resources */,
+				FAC7C72D214D93E8000BF471 /* Localizable.strings in Resources */,
 				FA1EF0E6211F56BA003A6AAA /* Main.storyboard in Resources */,
+				FAC7C729214D68C4000BF471 /* incoming.wav in Resources */,
 				FA31A02221201FB90033213F /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA206F0F214D1B4400E389E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		817DF380B9C306CDBB1D8EC3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OneSignalNotificationServiceExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9A3A01E290F0AF74BD678BC1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -422,7 +591,10 @@
 				FA3C0E2D2132A8BE002BCF31 /* T&CViewController.swift in Sources */,
 				FA39BE5921276D990088BD92 /* UserTableViewCell.swift in Sources */,
 				FA3C0E292132A009002BCF31 /* BackgroundCollectionViewController.swift in Sources */,
+				FA8341EE214C07F700192130 /* CallTableViewController.swift in Sources */,
+				FA8341EC214BFEF900192130 /* CallClass.swift in Sources */,
 				FAF5A57D213B234000D41D20 /* PicturesCollectionViewController.swift in Sources */,
+				FAC7C72B214D8E5C000BF471 /* Badges.swift in Sources */,
 				FA9EB38B212836880035598F /* RecentChatTableViewCell.swift in Sources */,
 				FA39BE5C212772510088BD92 /* UsersTableViewController.swift in Sources */,
 				FA7CAACF213C2289004C536B /* NewGroupViewController.swift in Sources */,
@@ -430,6 +602,7 @@
 				FA542D9C213D9F8500896549 /* InviteUsersTableViewController.swift in Sources */,
 				FA1EF0E3211F56BA003A6AAA /* ViewController.swift in Sources */,
 				FA56F60F2128057000F16BDA /* ProfileTableViewController.swift in Sources */,
+				FA729A83214D2804002B6EEF /* CallViewController.swift in Sources */,
 				FA7CAACD213C2048004C536B /* GroupMemberCollectionViewCell.swift in Sources */,
 				FA38FF14212DC7EE008C1E15 /* PhotoMedia.swift in Sources */,
 				FAA3F502212B357E00D9F4B7 /* Camera.swift in Sources */,
@@ -438,20 +611,39 @@
 				FA39BC1B213C0D95005FE853 /* Encryption.swift in Sources */,
 				FA3C0E27213293E5002BCF31 /* BlockedUsersViewController.swift in Sources */,
 				FA56F6142128158A00F16BDA /* Recent.swift in Sources */,
+				FA206F0C214D140000E389E9 /* PushNotifications.swift in Sources */,
 				FA31A028212023570033213F /* CollectionReference.swift in Sources */,
 				FAC00204213C451700C82169 /* Group.swift in Sources */,
+				FA8341EA214BFDDB00192130 /* CallTableViewCell.swift in Sources */,
 				FACE11AB2131886500381E2A /* AudioViewController.swift in Sources */,
 				FA39BE5E21277F6E0088BD92 /* ChatsViewController.swift in Sources */,
 				FA3C0E2B2132A18B002BCF31 /* BackgroundCollectionViewCell.swift in Sources */,
 				FA39BC19213C079F005FE853 /* CountryCode.swift in Sources */,
 				FA39BE57212762EB0088BD92 /* SettingsTableViewController.swift in Sources */,
 				FAD981F62128B98200E5E0C8 /* IncomingMessages.swift in Sources */,
+				FAB6DCC8214C0E1A001685B4 /* Test.m in Sources */,
 				FACE11A921316E6400381E2A /* VideoMessage.swift in Sources */,
 				FA39BC17213BE990005FE853 /* ContactsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FA206F0D214D1B4400E389E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA206F14214D1B4500E389E9 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FA206F17214D1B4500E389E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA206F10214D1B4400E389E9 /* OneSignalNotificationServiceExtension */;
+			targetProxy = FA206F16214D1B4500E389E9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FA1EF0E4211F56BA003A6AAA /* Main.storyboard */ = {
@@ -591,7 +783,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A9A68A1803307588954D2F1 /* Pods-ChatMe.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ChatMe/ChatMe.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2U24MYNX8L;
@@ -603,6 +798,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = SpasBelev.ChatMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ChatMe/ChatMe-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -612,7 +809,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5C482066EEF1FCDBAE72E7FA /* Pods-ChatMe.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ChatMe/ChatMe.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2U24MYNX8L;
@@ -624,6 +824,51 @@
 				PRODUCT_BUNDLE_IDENTIFIER = SpasBelev.ChatMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ChatMe/ChatMe-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FA206F1A214D1B4500E389E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0ADB401079D6A66B9F24713D /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2U24MYNX8L;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SpasBelev.ChatMe.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA206F1B214D1B4500E389E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3284B36D22B57E27AC0A57BB /* Pods-OneSignalNotificationServiceExtension.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2U24MYNX8L;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = SpasBelev.ChatMe.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -646,6 +891,15 @@
 			buildConfigurations = (
 				FA1EF0F0211F56BB003A6AAA /* Debug */,
 				FA1EF0F1211F56BB003A6AAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA206F19214D1B4500E389E9 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA206F1A214D1B4500E389E9 /* Debug */,
+				FA206F1B214D1B4500E389E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

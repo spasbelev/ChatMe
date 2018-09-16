@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  ChatMe
+
+  Created by Spas Belev on 15.09.18.
+  Copyright © 2018 Spas Belev. All rights reserved.
+*/
+
+
+"SIN_INCOMING_CALL" = "Incoming Call";
+"SIN_CANCEL_CALL" = "Cancel Call";
