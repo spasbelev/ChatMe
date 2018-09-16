@@ -18,9 +18,16 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var callButtonOutlet: UIButton!
     @IBOutlet weak var avatarImageView: UIImageView!
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var user: User?
     
     @IBAction func callButtonPressed(_ sender: Any) {
+        callUser()
+        let currentUser = User.currentUser()!
+        
+        let call = CallClass(_calledId: currentUser.objectId, _withUserId: user!.objectId, _callerFullName: currentUser.fullname, _withUserFullName: user!.fullname)
+        
+        call.saveCallInBackgrund()
     }
     
     
@@ -127,5 +134,18 @@ class ProfileTableViewController: UITableViewController {
         } else {
             blockButtonOutlet.setTitle("Block User", for: .normal)
         }
+    }
+    
+    // MARK: Call User
+    func callClient() -> SINCallClient {
+        return appDelegate._client.call()
+    }
+    
+    func callUser() {
+        let userToCall = user!.objectId
+        let call = callClient().callUser(withId: userToCall)
+        let callVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CallVC") as! CallViewController
+        callVC._call = call
+        self.present(callVC, animated: true, completion: nil)
     }
 }

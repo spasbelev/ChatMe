@@ -91,11 +91,12 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadUserDefaults()
         createTypingObserver()
-        JSQMessagesCollectionViewCell.registerMenuAction(#selector(self.delete))
+        loadUserDefaults()
+        JSQMessagesCollectionViewCell.registerMenuAction(#selector(delete))
         navigationItem.largeTitleDisplayMode = .never
         
+        self.navigationItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "Back"), style: .plain, target: self, action: #selector(self.backAction))]
         if isGroup! {
             getCurrentGroup(withId: chatRoomId)
         }
@@ -118,9 +119,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         // end of iphone X fix
         self.inputToolbar.contentView.rightBarButtonItem.setImage(UIImage(named: "mic"), for: .normal)
         self.inputToolbar.contentView.rightBarButtonItem.setTitle("", for: .normal)
-        
-        self.navigationItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "Back"), style: .plain, target: self, action: #selector(self.backAction))]
-    }
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -791,17 +790,18 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         imageFromData(pictureData: withUser.avatar) { (image) in
             if image != nil {
                 avatarButton.setImage(image!.circleMasked, for: .normal)
-                titleLabel.text = withUser.fullname
                 
-                if withUser.isOnline {
-                    subTitleLabel.text = "Online"
-                } else {
-                    subTitleLabel.text = "Offline"
-                }
-                
-                avatarButton.addTarget(self, action: #selector(self.showProfile), for: .touchUpInside)
             }
         }
+        titleLabel.text = withUser.fullname
+        
+        if withUser.isOnline {
+            subTitleLabel.text = "Online"
+        } else {
+            subTitleLabel.text = "Offline"
+        }
+        
+        avatarButton.addTarget(self, action: #selector(self.showProfile), for: .touchUpInside)
     }
     
     func setUIForGroupChat() {

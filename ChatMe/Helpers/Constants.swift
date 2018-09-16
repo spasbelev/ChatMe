@@ -21,9 +21,9 @@ public let APP_STARTED_NOTIFICATION = "AppStartedNotification"
 
 //IDS and Keys
 public let kFILEREFERENCE = "gs://chatme-2f930.appspot.com"
-public let kONESIGNALAPPID = ""
-public let kSINCHKEY = ""
-public let kSINCHSECRET = ""
+public let kONESIGNALAPPID = "64778afd-058d-436e-b5a5-390362596e8e"
+public let kSINCHKEY = "5031879c-721c-4189-b456-acf51bc39faf"
+public let kSINCHSECRET = "HsM7iotrw0qVOfIpFrS55Q=="
 public let kAPPURL = "App Link"
 
 
