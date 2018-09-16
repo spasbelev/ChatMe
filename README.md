@@ -28,8 +28,6 @@ One to two paragraph statement about your product and what it does.
 
 ## Installation
 
-#### CocoaPods
-
 
 ## Contribute
 
@@ -37,11 +35,11 @@ I would love for you to contribute to **ChatMe** if you think you can make it be
 
 ## Meta
 
-Spas Belev – [@YourTwitter] – spasbelev@gmail.com
+Spas Belev –  spasbelev@gmail.com
 
 Distributed under the MIT license. See ``LICENSE`` for more information.
 
-[https://github.com/yourname/github-link](https://github.com/spasbelev/)
+[https://github.com/spasbelev/ChatMe](https://github.com/spasbelev/)
 
 [swift-image]:https://img.shields.io/badge/swift-3.0-orange.svg
 [swift-url]: https://swift.org/
