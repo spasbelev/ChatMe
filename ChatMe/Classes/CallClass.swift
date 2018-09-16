@@ -62,7 +62,7 @@ class CallClass {
         } else {
             isIncoming = false
         }
-        if let date = _dictionary[kCREATEDAT] {
+        if let date = _dictionary[kDATE] {
             if (date as! String).count != 14 {
                 callDate = Date()
             } else {
